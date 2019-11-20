@@ -1,8 +1,34 @@
 <h1>My Appointments</h1>
 <hr>
+
 <br>
-<% current_user.appointments.each do | appointment| %>
-  <h2><%= appointment.purpose %></h2>
-  <h2><%= appointment.date %></h2>
+<br>
+<div class="ui list">
+<% current_user.appointments.each do | appointment | %>
+  <div class="item">
+    <i class="user icon"></i>
+    <div class="content">
+      <% @patient_id = Patient.find(appointment.patient_id) %>
+      <h3>Patient: <%= @patient_id.patient_full_name %></h3>
+      </div>
+  </div>
+  <br>
+  <div class="item">
+    <i class="calendar icon"></i>
+    <div class="content">
+      <%= appointment.date %>
+    </div>
+  </div>
+  <br>
+  <div class="item">
+    <i class="list icon"></i>
+    <div class="content">
+      <p>Purpose of Visit: <%= appointment.purpose %><p>
+    </div>
+  </div>
+  <br>
+  <hr>
 <% end %>
+</div>
+
 

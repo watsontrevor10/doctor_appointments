@@ -1,15 +1,32 @@
-<h1>Appointments Scheduled for</h1>
+<h1>Appointments Scheduled</h1>
 <br>
 <h2><%= @patient.patient_full_name %></h2>
+<%= link_to 'Add', new_patient_appointment_path(@patient), class: "ui blue button" %>
 <hr>
-<%= link_to 'Add', new_patient_appointment_path(@patient) %>
 <br>
 <br>
+
 <% @patient.appointments.each do |appointment| %>
-  <p>Purpose of Visit: <%= appointment.purpose %></p>
-  <p>Date of Visit: <%= appointment.date %></p>
-<%= link_to 'Edit', edit_patient_appointment_path(@patient, appointment) %> | 
-<%= link_to 'Delete', patient_appointment_path(@patient, appointment), method: :delete %>
+  <% @doctor_id = User.find(appointment.user_id) %>
+  <div class="ui cards">
+    <div class="card">
+      <div class="headher">
+        <h3>Doctor: <%= @doctor_id.doctor_full_name %></h3>
+      </div>
+      <div class="meta">
+        <h5>Date: <%= appointment.date %></h5>
+      </div>
+      <div class="title">
+        <p>Purpose of Visit:</p> 
+      </div>
+      <div class="content">
+        <%= appointment.purpose %>
+      </div>
+    </div>
+  </div>
+  <br>
+<%= link_to 'Edit', edit_patient_appointment_path(@patient, appointment), class: "ui blue tiny button" %> 
+<%= link_to 'Delete', patient_appointment_path(@patient, appointment), method: :delete, class: "ui blue tiny button" %>
 <br>
 <hr>
 <% end %>

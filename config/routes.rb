@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users 
   
   resources :patients do
-    resources :appointments, only: [:index, :new, :create, :edit, :destroy]
+    resources :appointments, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
 end

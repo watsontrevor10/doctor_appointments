@@ -6,4 +6,5 @@
   <%= f.date_field :date, required: true, placeholder: "Date" %>
   <br>
   <%= f.submit class: "ui green button inverted" %>
+  <%= link_to 'Cancel', patient_appointments_path(@patient), class: "ui button red inverted" %>
 <% end %>

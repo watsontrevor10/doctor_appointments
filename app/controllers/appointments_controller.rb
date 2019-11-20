@@ -30,7 +30,7 @@ class AppointmentsController < ApplicationController
   def update
     
     if @appointment.update(appointment_params)
-      redirect_to patient_appointments_path(@patient_id)
+      redirect_to patient_appointments_path(@patient)
     else
       render :edit
     end

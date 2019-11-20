@@ -1,0 +1,9 @@
+<h1>Edit Patient</h1>
+<%= form_with(model: @patient, local: true, class: "ui form") do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, require: true, autofocus: true, placeholder: "first name" %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, require: true, placeholder: "last name" %>
+  <br>
+  <%= f.submit class: "ui green button inverted"%>
+<% end %>
