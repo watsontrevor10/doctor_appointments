@@ -1,0 +1,9 @@
+<h1>Edit Appointment</h1>
+<%= form_with(model: [@patient, @appointment], local: true, class: "ui form") do |f| %>
+  <%= f.label :purpose %>
+  <%= f.text_field :purpose, required: true, autofocus: true, placeholder: "Purpose of visit" %>
+  <%= f.label :date %>
+  <%= f.date_field :date, required: true, placeholder: "Date" %>
+  <br>
+  <%= f.submit class: "ui green button inverted" %>
+<% end %>

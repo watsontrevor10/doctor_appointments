@@ -1,0 +1,11 @@
+<h1>Patients on File</h1>
+<%= link_to 'New Patient', new_patient_path %>
+<hr>
+<br>
+<% @patients.each do |patient| %>
+  <h2><%= patient.patient_full_name %></h2> - 
+  <%= link_to 'Appointments', patient_appointments_path(patient) %>
+<% end %>
+<br>
+<hr>
+

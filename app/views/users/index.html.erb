@@ -1,0 +1,8 @@
+<h1>My Appointments</h1>
+<hr>
+<br>
+<% current_user.appointments.each do | appointment| %>
+  <h2><%= appointment.purpose %></h2>
+  <h2><%= appointment.date %></h2>
+<% end %>
+
